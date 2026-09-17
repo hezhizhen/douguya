@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="道具屋 douguya，一间收藏好用 Web 工具的小店。收集别人做好的 Web 工具，按需取用。">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>道具屋 douguya · 好工具，各有所长</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b64c36'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='serif' font-size='40' fill='%23fffaf2'%3E具%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f6f2;
+      --card: #fdfcf9;
+      --ink: #2c352f;
+      --muted: #70756e;
+      --line: #e1e2d9;
+      --accent: #b64c36;
+      --accent-soft: #f4e7df;
+      --green: #344c40;
+      --serif: "Songti SC", "Noto Serif CJK SC", "STSong", "SimSun", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+    button, input, select { font: inherit; }
+    button, a, input, select { -webkit-tap-highlight-color: transparent; }
+    button, select { cursor: pointer; }
+    button { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    button { border: 0; }
+    svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    ::selection { background: #ecd5c4; }
+    .container { max-width: 1184px; margin: 0 auto; padding: 0 36px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    .skip-link { position: fixed; top: 10px; left: 10px; padding: 10px 18px; background: var(--ink); color: white; z-index: 10; transform: translateY(-180%); }
+    .skip-link:focus { transform: none; }
+    .site-header { height: 108px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand-seal { width: 43px; height: 43px; display: grid; place-items: center; color: #fffaf2; background: var(--accent); border-radius: 11px 11px 3px 11px; font: 28px/1 var(--serif); }
+    .brand-name { display: block; font-weight: 700; font-size: 22px; letter-spacing: .12em; line-height: 1.3; }
+    .brand-latin { display: block; font-size: 10px; letter-spacing: .22em; color: var(--muted); margin-top: 4px; }
+    .header-nav { display: flex; align-items: center; gap: 29px; color: var(--muted); font-size: 13px; }
+    .header-nav a { padding: 8px 0; }
+    .header-nav a:hover { color: var(--accent); }
+    .header-nav .current { color: var(--ink); position: relative; }
+    .header-nav .current::after { content: ""; position: absolute; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); bottom: 0; left: calc(50% - 2px); }
+    .github-link { display: inline-flex; gap: 6px; align-items: center; }
+    .github-link svg { width: 14px; height: 14px; }
+    .hero { padding: 56px 0 45px; display: grid; grid-template-columns: 1fr 310px; align-items: center; gap: 30px; }
+    .eyebrow { margin: 0 0 19px; font-size: 10px; font-weight: 600; letter-spacing: .18em; color: var(--muted); display: flex; align-items: center; gap: 9px; }
+    .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    h1 { font: 500 clamp(32px, 3.5vw, 46px)/1.4 var(--serif); letter-spacing: .015em; margin: 0 0 15px; }
+    h1 em { color: var(--accent); font-style: normal; }
+    .hero-subtitle { margin: 0; color: var(--muted); letter-spacing: .035em; }
+    .shop-note { justify-self: end; width: 258px; padding: 20px 24px; border-left: 1px solid #d4d6cc; position: relative; }
+    .shop-note .note-title { display: flex; align-items: center; gap: 9px; margin: 0 0 10px; font-size: 11px; letter-spacing: .12em; color: var(--accent); }
+    .shop-note p { margin: 0; line-height: 1.95; color: var(--muted); font-size: 13px; }
+    .shop-note .signature { color: var(--ink); font-size: 12px; margin-top: 12px; }
+    .search-box { display: flex; align-items: center; gap: 13px; padding: 0 20px; min-height: 60px; border: 1px solid #d5d8cd; border-radius: 10px; background: var(--card); box-shadow: 0 3px 8px #30352803; transition: border-color .15s, box-shadow .15s; }
+    .search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px #b64c3610; }
+    .search-box > svg { color: var(--muted); width: 21px; height: 21px; }
+    #search { flex: 1; min-width: 0; height: 58px; background: transparent; color: var(--ink); border: 0; outline: none; font-size: 15px; }
+    #search::placeholder { color: #737a6e; }
+    #search::-webkit-search-cancel-button { -webkit-appearance: none; }
+    .search-key { font: 12px/1.4 var(--sans); color: var(--muted); border: 1px solid var(--line); padding: 2px 8px; border-radius: 4px; }
+    .clear-search { background: transparent; padding: 10px; color: var(--muted); }
+    .filter-bar { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 23px 0 24px; border-bottom: 1px solid var(--line); }
+    .categories { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .category, .favorites-filter { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: #666f66; padding: 9px 13px; border-radius: 6px; white-space: nowrap; font-size: 13px; }
+    .category:hover, .favorites-filter:hover { background: #eceee6; }
+    .category[aria-pressed="true"] { background: var(--green); color: #fafbf6; }
+    .category-count { font-size: 11px; opacity: .75; font-variant-numeric: tabular-nums; }
+    .favorites-filter { border: 1px solid #d8dacf; padding: 8px 12px; }
+    .favorites-filter svg { width: 16px; height: 16px; }
+    .favorites-filter[aria-pressed="true"] { background: var(--accent-soft); border-color: #dfb8a8; color: var(--accent); }
+    .favorites-filter[aria-pressed="true"] svg { fill: currentColor; }
+    .collection-heading { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 25px 0 17px; }
+    .collection-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+    h2 { font-size: 16px; margin: 0; font-weight: 600; }
+    .result-count { color: var(--muted); font-size: 12px; }
+    .sort-control { display: flex; align-items: center; gap: 7px; color: var(--muted); }
+    .sort-control svg { width: 15px; height: 15px; }
+    #sort { background: transparent; color: var(--muted); border: 0; font-size: 12px; padding: 6px 3px; }
+    .tool-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+    .tool-card { min-width: 0; position: relative; border: 1px solid var(--line); border-radius: 9px; background: var(--card); transition: transform .18s, border-color .18s, box-shadow .18s; }
+    .tool-card:hover { transform: translateY(-3px); border-color: #b7beb0; box-shadow: 0 7px 18px #303a3010; }
+    .tool-link { display: flex; flex-direction: column; height: 100%; padding: 22px 22px 17px; border-radius: 9px; }
+    .card-header { display: flex; align-items: center; gap: 12px; padding-right: 29px; }
+    .favicon { position: relative; flex: none; width: 43px; height: 43px; display: grid; place-items: center; background: var(--icon-bg, #edf0e7); border: 1px solid #33333306; border-radius: 11px; overflow: hidden; color: var(--icon-ink, #455e4b); font-size: 21px; font-weight: 600; }
+    .favicon img { position: absolute; inset: 7px; width: 28px; height: 28px; object-fit: contain; opacity: 0; }
+    .favicon.loaded { background: #f3f3ed; }
+    .favicon.loaded img { opacity: 1; }
+    .favicon.loaded .favicon-letter { visibility: hidden; }
+    .tool-name { margin: 0; font-size: 16px; font-weight: 650; line-height: 1.4; letter-spacing: -.02em; }
+    .tool-category { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+    .favorite-button { position: absolute; top: 16px; right: 12px; width: 36px; height: 36px; display: grid; place-items: center; padding: 8px; border-radius: 6px; background: transparent; color: #91968c; }
+    .favorite-button:hover { color: var(--accent); background: var(--accent-soft); }
+    .favorite-button svg { width: 18px; height: 18px; }
+    .favorite-button[aria-pressed="true"] { color: var(--accent); }
+    .favorite-button[aria-pressed="true"] svg { fill: currentColor; }
+    .tool-description { color: #656d64; font-size: 13px; line-height: 1.8; min-height: 47px; margin: 16px 0 13px; }
+    .tool-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 17px; }
+    .tool-tag { font-size: 10px; color: #73796e; background: #f1f2ec; padding: 2px 7px; border-radius: 3px; }
+    .card-footer { margin-top: auto; padding-top: 12px; border-top: 1px solid #eeeee6; display: flex; gap: 8px; align-items: center; justify-content: space-between; color: #687061; }
+    .tool-domain { font-size: 11px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    .card-footer svg { width: 15px; height: 15px; transition: color .15s, transform .15s; }
+    .tool-link:hover .card-footer svg { color: var(--accent); transform: translate(2px, -2px); }
+    .empty-state { text-align: center; padding: 65px 20px; border: 1px dashed #d1d6c8; border-radius: 9px; }
+    .empty-state > svg { width: 29px; height: 29px; margin: 0 auto 18px; color: var(--accent); }
+    .empty-state h3 { font: 500 22px/1.5 var(--serif); margin: 0 0 9px; }
+    .empty-state p { margin: 0 0 21px; color: var(--muted); }
+    .reset-button { padding: 10px 18px; border-radius: 6px; background: var(--green); color: white; }
+    .collection-end { text-align: center; color: #687061; font-size: 11px; letter-spacing: .12em; margin: 30px 0 0; display: flex; justify-content: center; align-items: center; gap: 12px; }
+    .collection-end::before, .collection-end::after { content: ""; width: 28px; height: 1px; background: var(--line); }
+    .about { margin-top: 54px; padding: 30px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 40px; }
+    .about-title { font: 500 19px/1.5 var(--serif); margin-bottom: 9px; }
+    .about p { color: var(--muted); font-size: 12px; margin: 0; max-width: 470px; line-height: 1.9; }
+    .neighbor-links { display: flex; gap: 27px; align-items: center; }
+    .neighbor-link { white-space: nowrap; }
+    .neighbor-link span { display: block; color: var(--muted); font-size: 10px; margin-top: 5px; }
+    .neighbor-link:hover { color: var(--accent); }
+    .site-footer { border-top: 1px solid var(--line); padding: 20px 0 28px; color: #73796e; font-size: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; letter-spacing: .03em; }
+    .site-footer a:hover { color: var(--accent); }
+    .toast { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); padding: 11px 20px; border-radius: 7px; color: #fff; background: var(--green); box-shadow: 0 5px 20px #0002; max-width: calc(100% - 32px); width: max-content; z-index: 20; font-size: 13px; }
+    .toast:empty { display: none; }
+    noscript p { padding: 20px; border: 1px solid var(--line); border-radius: 8px; }
+    @media (min-width: 1400px) { .hero { padding-top: 64px; padding-bottom: 53px; } }
+    @media (max-width: 900px) {
+      .container { padding: 0 28px; }
+      .hero { grid-template-columns: 1fr 220px; gap: 16px; }
+      .shop-note { width: 220px; padding: 15px 0 15px 21px; }
+      .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .filter-bar { align-items: flex-start; }
+      .category { padding: 8px 10px; }
+      .about { gap: 28px; }
+      .neighbor-links { gap: 20px; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      .site-header { height: 88px; gap: 10px; }
+      .brand { gap: 10px; }
+      .brand-seal { width: 37px; height: 37px; font-size: 25px; }
+      .brand-name { font-size: 19px; }
+      .brand-latin { font-size: 8px; }
+      .header-nav { gap: 17px; font-size: 12px; }
+      .header-nav .current { display: none; }
+      .hero { display: block; padding: 35px 0 29px; }
+      .eyebrow { font-size: 9px; margin-bottom: 15px; }
+      h1 { font-size: clamp(27px, 7vw, 38px); margin-bottom: 13px; }
+      .hero-subtitle { font-size: 12px; letter-spacing: 0; }
+      .shop-note { display: none; }
+      .search-box { min-height: 55px; padding: 0 15px; gap: 10px; }
+      #search { height: 53px; font-size: 16px; }
+      .search-key { display: none; }
+      .filter-bar { padding: 17px 0 18px; flex-wrap: wrap; gap: 13px; }
+      .categories { gap: 3px; }
+      .category { font-size: 12px; padding: 8px 10px; }
+      .favorites-filter { font-size: 12px; padding: 7px 11px; }
+      .collection-heading { padding-top: 21px; }
+      .collection-title { gap: 8px; }
+      .result-count { font-size: 11px; }
+      .tool-grid { grid-template-columns: 1fr; gap: 12px; }
+      .tool-link { padding: 20px 20px 15px; }
+      .tool-description { min-height: 0; }
+      .tool-tags { margin-bottom: 15px; }
+      .about { flex-direction: column; gap: 23px; margin-top: 36px; padding: 25px 0; }
+      .neighbor-links { gap: 35px; }
+      .site-footer { font-size: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+      .tool-card:hover, .tool-link:hover .card-footer svg { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3-5.7-3-5.7 3 1.1-6.3-4.6-4.5 6.4-.9Z"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="icon-sort" viewBox="0 0 24 24"><path d="M8 4v16m-4-4 4 4 4-4M15 5h6m-6 5h4m-4 5h2"/></symbol>
+    </defs>
+  </svg>
+  <a class="skip-link" href="#collection">跳到工具收藏</a>
+  <div class="container">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="道具屋首页">
+        <span class="brand-seal" aria-hidden="true">具</span>
+        <span><span class="brand-name">道具屋</span><span class="brand-latin">DOUGUYA</span></span>
+      </a>
+      <nav class="header-nav" aria-label="主导航">
+        <a class="current" href="#collection">工具收藏</a>
+        <a href="#about">关于</a>
+        <a class="github-link" href="https://github.com/hezhizhen/douguya" target="_blank" rel="noopener noreferrer">GitHub <svg aria-hidden="true"><use href="#icon-arrow"/></svg><span class="sr-only">（新标签页）</span></a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">A PERSONAL COLLECTION OF WEB TOOLS</p>
+          <h1 id="hero-title">好工具，<em>各有所长。</em></h1>
+          <p class="hero-subtitle">把好用的网站收进小店，在需要的时候，顺手找到。</p>
+        </div>
+        <aside class="shop-note" aria-label="小店手记">
+          <p class="note-title">どうぐや / 小店手记</p>
+          <p>把偶然发现的好工具，<br>留在一个好找的地方。<br>需要的时候，随手打开。</p>
+          <p class="signature">慢慢收集，常常使用。 ↗</p>
+        </aside>
+      </section>
+      <section id="collection" aria-labelledby="collection-title">
+        <search>
+          <label class="sr-only" for="search">搜索工具名称、用途或标签</label>
+          <div class="search-box">
+            <svg aria-hidden="true"><use href="#icon-search"/></svg>
+            <input id="search" type="search" placeholder="找一件趁手的工具…" autocomplete="off" spellcheck="false" aria-keyshortcuts="/" aria-controls="tool-grid" aria-describedby="search-hint">
+            <span id="search-hint" class="sr-only">支持工具名称、用途、标签和域名，按斜杠键开始搜索，按 Escape 清空搜索。</span>
+            <button id="clear-search" class="clear-search" type="button" aria-label="清空搜索" hidden><svg aria-hidden="true"><use href="#icon-close"/></svg></button>
+            <kbd class="search-key" aria-hidden="true">/</kbd>
+          </div>
+        </search>
+        <div class="filter-bar">
+          <div id="categories" class="categories" role="group" aria-label="按分类筛选"></div>
+          <button id="favorites-filter" class="favorites-filter" type="button" aria-pressed="false" aria-controls="tool-grid"><svg aria-hidden="true"><use href="#icon-star"/></svg>我的常用 <span id="favorites-count" class="category-count">0</span></button>
+        </div>
+        <div class="collection-heading">
+          <div class="collection-title"><h2 id="collection-title">全部工具</h2><span id="result-count" class="result-count" role="status" aria-live="polite" aria-atomic="true"></span></div>
+          <label class="sort-control" for="sort"><svg aria-hidden="true"><use href="#icon-sort"/></svg><span class="sr-only">排列工具</span><select id="sort"><option value="name" selected>名称 A–Z</option><option value="collection">收藏顺序</option></select></label>
+        </div>
+        <div id="tool-grid" class="tool-grid"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <svg aria-hidden="true"><use href="#icon-search"/></svg>
+          <h3 id="empty-title">还没找到这件道具</h3>
+          <p id="empty-description">试试更短的关键词，或换一个分类。</p>
+          <button id="reset-filters" class="reset-button" type="button">查看全部工具</button>
+        </div>
+        <noscript><p>请启用 JavaScript 来浏览、搜索和筛选工具。完整工具清单也可以在 <a href="https://github.com/hezhizhen/douguya/blob/master/index.html">GitHub 源文件</a>中查看。</p></noscript>
+        <p class="collection-end">好用的留下，慢慢添置</p>
+      </section>
+      <section id="about" class="about" aria-labelledby="about-title">
+        <div><h2 id="about-title" class="about-title">一间小小的道具屋。</h2><p>这里收藏别人做好的 Web 工具，让那些偶然发现的好东西，下次还能找到。<br>点击星标，放进你的常用清单；清单只保存在当前浏览器。</p></div>
+        <nav class="neighbor-links" aria-label="其他收藏">
+          <a class="neighbor-link" href="https://github.com/hezhizhen/links" target="_blank" rel="noopener noreferrer">links ↗<span>值得读的内容</span><span class="sr-only">（新标签页）</span></a>
+          <a class="neighbor-link" href="https://github.com/hezhizhen/tools-in-html" target="_blank" rel="noopener noreferrer">tools-in-html ↗<span>自己做的小工具</span><span class="sr-only">（新标签页）</span></a>
+        </nav>
+      </section>
+    </main>
+    <footer class="site-footer"><span>DOUGUYA · 道具屋 <span aria-hidden="true">/</span> 好工具，各有所长</span><a href="https://github.com/hezhizhen" target="_blank" rel="noopener noreferrer">Collected by hezhizhen ↗<span class="sr-only">（新标签页）</span></a></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <template id="tool-template">
+    <article class="tool-card">
+      <a class="tool-link" target="_blank" rel="noopener noreferrer">
+        <div class="card-header"><span class="favicon" aria-hidden="true"><span class="favicon-letter"></span><img alt="" width="28" height="28" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span><div><h3 class="tool-name"></h3><span class="tool-category"></span></div></div>
+        <p class="tool-description"></p><div class="tool-tags"></div>
+        <div class="card-footer"><span class="tool-domain"></span><svg aria-hidden="true"><use href="#icon-arrow"/></svg></div>
+        <span class="sr-only">在新标签页打开</span>
+      </a>
+      <button class="favorite-button" type="button" aria-pressed="false"><svg aria-hidden="true"><use href="#icon-star"/></svg></button>
+    </article>
+  </template>
+  <script>
+    // id 用于保存常用标记；修改名称或网址时保留 id，可避免丢失已有标记。
+    const tools = [
+      { id: "twitterviewer", name: "TwitterViewer", url: "https://twitterviewer.net/", icon: "https://twitterviewer.net/favicon.svg", category: "社交媒体", description: "通过链接或用户名，查看 Twitter / X 的公开推文、用户资料和回复。", tags: ["Twitter", "X", "推文查看"], color: "#e4eef8", ink: "#3979ae" },
+      { id: "via", name: "VIA", url: "https://usevia.app/", icon: "https://usevia.app/favicon-32x32.png", category: "硬件工具", description: "在浏览器中配置兼容键盘的按键映射，并测试按键输入。", tags: ["键盘", "改键", "QMK"], color: "#ece8f6", ink: "#725aa7" },
+      { id: "appstoreprice", name: "App Store Price", url: "https://appstoreprice.org/", icon: "https://appstoreprice.org/appstoreprice.png", category: "价格查询", description: "查询并对比 App Store 不同国家和地区的应用价格，寻找更合适的购买价格。", tags: ["App Store", "应用比价", "跨区价格"], color: "#e6eefb", ink: "#4875b9" },
+      { id: "anthropeum", name: "Anthropeum", url: "https://anthropeum.com/", icon: "https://anthropeum.com/favicon-96.png", category: "学习探索", description: "观察文物，猜测它们的年代与产地，用每日挑战探索人类历史和文化。", tags: ["文物", "历史", "每日挑战"], color: "#f2e9db", ink: "#947044" },
+      { id: "visual-capitalist", name: "Visual Capitalist", url: "https://www.visualcapitalist.com/", category: "学习探索", description: "通过信息图、图表和数据故事，直观了解全球趋势与复杂议题。", tags: ["数据可视化", "信息图", "全球趋势"], color: "#e7ecef", ink: "#496477" },
+      { id: "history-of-market", name: "History of Market", url: "https://historyofmarket.com/", icon: "https://historyofmarket.com/favicon-32x32.png", category: "金融数据", description: "美股编年史：通过图表查看美股长期走势、估值、回撤与指数成分变化。", tags: ["美股", "历史数据", "数据可视化"], color: "#eee8dc", ink: "#8c7048" }
+    ];
+
+    const storageKey = "douguya.favorites.v1";
+    const toolIds = new Set(tools.map(tool => tool.id));
+    const categoryNames = ["全部工具", ...new Set(tools.map(tool => tool.category))];
+    const search = document.querySelector("#search");
+    const grid = document.querySelector("#tool-grid");
+    const template = document.querySelector("#tool-template");
+    const categories = document.querySelector("#categories");
+    const favoritesFilter = document.querySelector("#favorites-filter");
+    const sort = document.querySelector("#sort");
+    let category = "全部工具";
+    let favoritesOnly = false;
+    let toastTimeout;
+
+    function parseFavorites(value) {
+      const parsed = JSON.parse(value || "[]");
+      return new Set(Array.isArray(parsed) ? parsed.filter(id => toolIds.has(id)) : []);
+    }
+
+    let favorites;
+    try { favorites = parseFavorites(localStorage.getItem(storageKey)); }
+    catch { favorites = new Set(); }
+
+    const normalize = value => value.normalize("NFKC").toLocaleLowerCase().trim();
+    const searchText = new Map(tools.map(tool => [tool.id, normalize([tool.name, tool.description, tool.category, tool.url, ...tool.tags].join(" "))]));
+
+    function notify(message) {
+      clearTimeout(toastTimeout);
+      document.querySelector("#toast").textContent = message;
+      toastTimeout = setTimeout(() => { document.querySelector("#toast").textContent = ""; }, 3500);
+    }
+
+    function updateFavoriteButton(button, tool) {
+      const saved = favorites.has(tool.id);
+      button.setAttribute("aria-pressed", String(saved));
+      button.setAttribute("aria-label", `${saved ? "从常用移除" : "添加到常用"} ${tool.name}`);
+      button.title = saved ? "从常用移除" : "添加到常用";
+    }
+
+    // 卡片只创建一次；筛选时复用节点，避免重复请求图标，也保留星标按钮的焦点。
+    const cards = new Map(tools.map(tool => {
+      const card = template.content.firstElementChild.cloneNode(true);
+      const url = new URL(tool.url);
+      card.dataset.id = tool.id;
+      card.querySelector(".tool-link").href = url.href;
+      card.querySelector(".tool-name").textContent = tool.name;
+      card.querySelector(".tool-category").textContent = tool.category;
+      card.querySelector(".tool-description").textContent = tool.description;
+      card.querySelector(".tool-domain").textContent = url.hostname.replace(/^www\./, "");
+      const favicon = card.querySelector(".favicon");
+      favicon.style.setProperty("--icon-bg", tool.color);
+      favicon.style.setProperty("--icon-ink", tool.ink);
+      card.querySelector(".favicon-letter").textContent = tool.name[0].toUpperCase();
+      const img = card.querySelector("img");
+      img.addEventListener("load", () => favicon.classList.add("loaded"));
+      img.addEventListener("error", () => { img.hidden = true; favicon.classList.remove("loaded"); }, { once: true });
+      img.src = tool.icon || new URL("favicon.ico", url).href;
+      for (const tag of tool.tags) {
+        const span = document.createElement("span");
+        span.className = "tool-tag";
+        span.textContent = tag;
+        card.querySelector(".tool-tags").append(span);
+      }
+      const favoriteButton = card.querySelector(".favorite-button");
+      updateFavoriteButton(favoriteButton, tool);
+      favoriteButton.addEventListener("click", () => {
+        if (favorites.has(tool.id)) favorites.delete(tool.id);
+        else favorites.add(tool.id);
+        let persisted = true;
+        try { localStorage.setItem(storageKey, JSON.stringify([...favorites])); }
+        catch { persisted = false; }
+        updateFavoriteButton(favoriteButton, tool);
+        const visibleButtons = [...grid.querySelectorAll(".tool-card:not([hidden]) .favorite-button")];
+        const previousIndex = visibleButtons.indexOf(favoriteButton);
+        render();
+        if (card.hidden) {
+          const remaining = [...grid.querySelectorAll(".tool-card:not([hidden]) .favorite-button")];
+          (remaining[Math.min(previousIndex, remaining.length - 1)] || document.querySelector("#reset-filters")).focus();
+        }
+        notify(persisted ? `${favorites.has(tool.id) ? "已添加到常用：" : "已从常用移除："}${tool.name}` : "浏览器未允许保存，常用标记仅在本次打开期间有效。");
+      });
+      grid.append(card);
+      return [tool.id, card];
+    }));
+
+    for (const name of categoryNames) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "category";
+      button.dataset.category = name;
+      button.setAttribute("aria-controls", "tool-grid");
+      button.append(document.createTextNode(name));
+      const count = document.createElement("span");
+      count.className = "category-count";
+      count.textContent = name === "全部工具" ? tools.length : tools.filter(tool => tool.category === name).length;
+      button.append(count);
+      button.addEventListener("click", () => { category = name; render(); });
+      categories.append(button);
+    }
+
+    function render() {
+      const words = normalize(search.value).split(/\s+/).filter(Boolean);
+      const visible = tools.filter(tool =>
+        (category === "全部工具" || tool.category === category) &&
+        (!favoritesOnly || favorites.has(tool.id)) &&
+        words.every(word => searchText.get(tool.id).includes(word))
+      );
+      const visibleIds = new Set(visible.map(tool => tool.id));
+      for (const [id, card] of cards) card.hidden = !visibleIds.has(id);
+      for (const button of categories.children) button.setAttribute("aria-pressed", String(button.dataset.category === category));
+      favoritesFilter.setAttribute("aria-pressed", String(favoritesOnly));
+      document.querySelector("#favorites-count").textContent = favorites.size;
+      document.querySelector("#collection-title").textContent = favoritesOnly ? (category === "全部工具" ? "我的常用" : `我的常用 · ${category}`) : category;
+      document.querySelector("#result-count").textContent = `找到 ${visible.length} 件工具`;
+      document.querySelector("#clear-search").hidden = !search.value;
+      const empty = visible.length === 0;
+      document.querySelector("#empty-state").hidden = !empty;
+      grid.hidden = empty;
+      const noFavorites = favoritesOnly && favorites.size === 0;
+      document.querySelector("#empty-title").textContent = noFavorites ? "把顺手的道具，放在这里" : "还没找到这件道具";
+      document.querySelector("#empty-description").textContent = noFavorites ? "点击工具右上角的星标，就能收进你的常用清单。" : "试试更短的关键词，或换一个分类。";
+    }
+
+    search.addEventListener("input", render);
+    document.querySelector("#clear-search").addEventListener("click", () => { search.value = ""; render(); search.focus(); });
+    favoritesFilter.addEventListener("click", () => { favoritesOnly = !favoritesOnly; render(); });
+    function sortCards() {
+      const ordered = [...tools];
+      if (sort.value === "name") ordered.sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
+      grid.append(...ordered.map(tool => cards.get(tool.id)));
+    }
+    sort.addEventListener("change", sortCards);
+    document.querySelector("#reset-filters").addEventListener("click", () => {
+      category = "全部工具"; favoritesOnly = false; search.value = ""; render(); search.focus();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return;
+      const editing = event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable]:not([contenteditable='false'])");
+      if (event.key === "/" && !editing) { event.preventDefault(); search.focus(); }
+      if (event.key === "Escape" && document.activeElement === search) { search.value = ""; render(); }
+    });
+    window.addEventListener("storage", event => {
+      if (event.key !== storageKey && event.key !== null) return;
+      try { favorites = parseFavorites(event.newValue); }
+      catch { favorites = new Set(); }
+      for (const tool of tools) updateFavoriteButton(cards.get(tool.id).querySelector(".favorite-button"), tool);
+      render();
+    });
+    sortCards();
+    render();
+  </script>
+</body>
+</html>
