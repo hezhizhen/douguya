@@ -1,0 +1,79 @@
+[
+  {
+    "id": "twitterviewer",
+    "name": "TwitterViewer",
+    "url": "https://twitterviewer.net/",
+    "icon": "https://twitterviewer.net/favicon.svg",
+    "category": "社交媒体",
+    "description": "通过链接或用户名，查看 Twitter / X 的公开推文、用户资料和回复。",
+    "tags": [
+      "Twitter",
+      "X",
+      "推文查看"
+    ]
+  },
+  {
+    "id": "via",
+    "name": "VIA",
+    "url": "https://usevia.app/",
+    "icon": "https://usevia.app/favicon-32x32.png",
+    "category": "硬件工具",
+    "description": "在浏览器中配置兼容键盘的按键映射，并测试按键输入。",
+    "tags": [
+      "键盘",
+      "改键",
+      "QMK"
+    ]
+  },
+  {
+    "id": "appstoreprice",
+    "name": "App Store Price",
+    "url": "https://appstoreprice.org/",
+    "icon": "https://appstoreprice.org/appstoreprice.png",
+    "category": "价格查询",
+    "description": "查询并对比 App Store 不同国家和地区的应用价格，寻找更合适的购买价格。",
+    "tags": [
+      "App Store",
+      "应用比价",
+      "跨区价格"
+    ]
+  },
+  {
+    "id": "anthropeum",
+    "name": "Anthropeum",
+    "url": "https://anthropeum.com/",
+    "icon": "https://anthropeum.com/favicon-96.png",
+    "category": "学习探索",
+    "description": "观察文物，猜测它们的年代与产地，用每日挑战探索人类历史和文化。",
+    "tags": [
+      "文物",
+      "历史",
+      "每日挑战"
+    ]
+  },
+  {
+    "id": "visual-capitalist",
+    "name": "Visual Capitalist",
+    "url": "https://www.visualcapitalist.com/",
+    "category": "学习探索",
+    "description": "通过信息图、图表和数据故事，直观了解全球趋势与复杂议题。",
+    "tags": [
+      "数据可视化",
+      "信息图",
+      "全球趋势"
+    ]
+  },
+  {
+    "id": "history-of-market",
+    "name": "History of Market",
+    "url": "https://historyofmarket.com/",
+    "icon": "https://historyofmarket.com/favicon-32x32.png",
+    "category": "金融数据",
+    "description": "美股编年史：通过图表查看美股长期走势、估值、回撤与指数成分变化。",
+    "tags": [
+      "美股",
+      "历史数据",
+      "数据可视化"
+    ]
+  }
+]
