@@ -75,5 +75,31 @@
       "历史数据",
       "数据可视化"
     ]
+  },
+  {
+    "id": "typewriter",
+    "name": "Type Writer Simulator",
+    "url": "https://typewriter.disksing.com/",
+    "icon": "https://typewriter.disksing.com/favicon.svg",
+    "category": "趣味体验",
+    "description": "在浏览器里体验复古打字机，切换色带、保存纸张，并将作品导出为图片。",
+    "tags": [
+      "打字机",
+      "复古",
+      "文字创作"
+    ]
+  },
+  {
+    "id": "iss-live-tracker",
+    "name": "ISS Live Tracker",
+    "url": "https://isstrackerlive.space/",
+    "icon": "https://isstrackerlive.space/favicon.ico",
+    "category": "学习探索",
+    "description": "在地图上追踪国际空间站的位置与轨道，查询可见过境时间，并观看空间站直播。",
+    "tags": [
+      "国际空间站",
+      "卫星追踪",
+      "天文"
+    ]
   }
 ]
