@@ -101,5 +101,18 @@
       "卫星追踪",
       "天文"
     ]
+  },
+  {
+    "id": "world-wide-words",
+    "name": "World Wide Words",
+    "url": "https://www.worldwidewords.org/",
+    "icon": "https://www.worldwidewords.org/img/icons/icon-32.png",
+    "category": "学习探索",
+    "description": "查阅英语词源、惯用语和词义演变的文章，探索单词背后的历史与语言趣闻。",
+    "tags": [
+      "英语",
+      "词源",
+      "语言学习"
+    ]
   }
 ]
