@@ -114,5 +114,18 @@
       "词源",
       "语言学习"
     ]
+  },
+  {
+    "id": "naban",
+    "name": "哪版",
+    "url": "https://naban.barrybarrywu.com/",
+    "icon": "https://naban.barrybarrywu.com/naban-logo.png",
+    "category": "硬件工具",
+    "description": "对比 iPhone 不同国家和地区版本的价格、双卡配置与功能差异，查看对应的官方资料。",
+    "tags": [
+      "iPhone",
+      "版本对比",
+      "购买参考"
+    ]
   }
 ]
