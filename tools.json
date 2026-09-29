@@ -127,5 +127,18 @@
       "版本对比",
       "购买参考"
     ]
+  },
+  {
+    "id": "moving-image-archive",
+    "name": "Moving Image Archive",
+    "url": "https://www.movingimagearchive.com/",
+    "icon": "https://www.movingimagearchive.com/favicon.png",
+    "category": "影音素材",
+    "description": "搜索、观看和下载公共领域的历史影像，通过画面描述查找所需的影片片段。",
+    "tags": [
+      "历史影像",
+      "视频素材",
+      "公共领域"
+    ]
   }
 ]
