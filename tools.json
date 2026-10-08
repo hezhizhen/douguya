@@ -165,5 +165,18 @@
       "全屏标牌",
       "倒计时"
     ]
+  },
+  {
+    "id": "art-museum",
+    "name": "A Walkable History of Art",
+    "url": "https://artmuseum.artfrompixels.com/",
+    "icon": "https://artmuseum.artfrompixels.com/icon.svg",
+    "category": "学习探索",
+    "description": "沿时间线探索艺术时期与艺术家，并以第一人称漫步 3D 展厅，欣赏来自维基百科的绘画作品。",
+    "tags": [
+      "艺术史",
+      "3D 博物馆",
+      "绘画"
+    ]
   }
 ]
