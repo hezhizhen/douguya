@@ -152,5 +152,18 @@
       "稀有文档",
       "绝版书籍"
     ]
+  },
+  {
+    "id": "bigwords",
+    "name": "BIGWORDS.PAGE",
+    "url": "https://bigwords.page/",
+    "icon": "https://bigwords.page/favicon.svg",
+    "category": "文字工具",
+    "description": "将文字变成适配手机、平板或电视的全屏标牌，支持倒计时、轮播和链接分享。",
+    "tags": [
+      "大字显示",
+      "全屏标牌",
+      "倒计时"
+    ]
   }
 ]
