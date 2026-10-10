@@ -143,15 +143,16 @@
   },
   {
     "id": "samizdat",
-    "name": "Samizdat",
-    "url": "https://rare-books.vercel.app/",
+    "name": "Read Rare",
+    "url": "https://readrare.com/",
     "category": "学习探索",
-    "description": "收集公司内部备忘录、稀有文档和绝版创业书籍，提供免费阅读或借阅入口。",
+    "description": "收集科技公司内部备忘录、稀有文档和绝版书籍，提供免费阅读或借阅入口。",
     "tags": [
       "创业",
       "稀有文档",
       "绝版书籍"
-    ]
+    ],
+    "icon": "https://readrare.com/favicon.svg"
   },
   {
     "id": "bigwords",
