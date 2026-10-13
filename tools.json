@@ -179,5 +179,18 @@
       "3D 博物馆",
       "绘画"
     ]
+  },
+  {
+    "id": "brake-challenge",
+    "name": "极限刹车挑战",
+    "url": "https://brake.tp0k.us/",
+    "category": "趣味体验",
+    "description": "通过控制刹车时机和按压力度，让加速中的车辆尽快停下，挑战更高刹停得分。",
+    "tags": [
+      "小游戏",
+      "刹车挑战",
+      "反应力"
+    ],
+    "icon": "https://upload.wikimedia.org/wikipedia/en/c/c5/Maextro_logo.svg"
   }
 ]
