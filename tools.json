@@ -192,5 +192,18 @@
       "反应力"
     ],
     "icon": "https://upload.wikimedia.org/wikipedia/en/c/c5/Maextro_logo.svg"
+  },
+  {
+    "id": "tiny-little-office",
+    "name": "Tiny Little Office",
+    "url": "https://tinylittleoffice.com/",
+    "icon": "https://tinylittleoffice.com/favicon.svg",
+    "category": "办公工具",
+    "description": "在浏览器中制作文档、表格、演示文稿和图示，并通过链接分享内容。",
+    "tags": [
+      "办公套件",
+      "电子表格",
+      "链接分享"
+    ]
   }
 ]
