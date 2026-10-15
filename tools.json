@@ -205,5 +205,31 @@
       "电子表格",
       "链接分享"
     ]
+  },
+  {
+    "id": "phloem",
+    "name": "Phloem",
+    "url": "https://phloem.stemdeck.app/",
+    "icon": "https://phloem.stemdeck.app/favicon.svg",
+    "category": "开发工具",
+    "description": "输入公开 GitHub 仓库，将提交历史可视化为生长的黏菌网络，观察代码库的演变。",
+    "tags": [
+      "GitHub",
+      "Git",
+      "代码可视化"
+    ]
+  },
+  {
+    "id": "catch-a-bird",
+    "name": "Catch a Bird",
+    "url": "https://catchabird.com/",
+    "icon": "https://catchabird.com/icon.svg",
+    "category": "趣味体验",
+    "description": "捕捉屏幕上的小鸟，阅读陌生人分享的快乐瞬间。",
+    "tags": [
+      "小鸟",
+      "快乐分享",
+      "互动体验"
+    ]
   }
 ]
