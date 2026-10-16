@@ -231,5 +231,17 @@
       "快乐分享",
       "互动体验"
     ]
+  },
+  {
+    "id": "flying-car-dodge",
+    "name": "美国车会飞",
+    "url": "https://flying-car-dodge.pages.dev/",
+    "category": "趣味体验",
+    "description": "驾驶可喷射飞行的汽车，躲避失控车辆和空中障碍，挑战更长存活时间与更高得分。",
+    "tags": [
+      "小游戏",
+      "飞行汽车",
+      "躲避挑战"
+    ]
   }
 ]
