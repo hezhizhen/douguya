@@ -256,5 +256,18 @@
       "生态园艺",
       "生物多样性"
     ]
+  },
+  {
+    "id": "little-prince",
+    "name": "小王子：星辰之旅",
+    "url": "https://littleprince.dev/",
+    "icon": "https://littleprince.dev/favicon.332c6f7cd1309017d329a6fd52bffe76.ico",
+    "category": "趣味体验",
+    "description": "游玩以《小王子》为主题的互动网页游戏，目前需使用电脑浏览器。",
+    "tags": [
+      "小王子",
+      "网页游戏",
+      "互动体验"
+    ]
   }
 ]
