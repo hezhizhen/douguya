@@ -243,5 +243,18 @@
       "飞行汽车",
       "躲避挑战"
     ]
+  },
+  {
+    "id": "indigene",
+    "name": "Indigene",
+    "url": "https://indigene.app/",
+    "icon": "https://indigene.app/favicon.svg",
+    "category": "学习探索",
+    "description": "根据所在地区查找适生的原生植物，了解它们对当地生态系统和野生动物的作用。",
+    "tags": [
+      "原生植物",
+      "生态园艺",
+      "生物多样性"
+    ]
   }
 ]
