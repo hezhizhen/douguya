@@ -269,5 +269,18 @@
       "网页游戏",
       "互动体验"
     ]
+  },
+  {
+    "id": "weball",
+    "name": "Weball",
+    "url": "https://www.funwithcomputervision.com/weball/",
+    "icon": "https://www.funwithcomputervision.com/weball/favicon.svg",
+    "category": "趣味体验",
+    "description": "在网页上滚动小球，吸附文字和图片并逐渐变大，通关后解锁更多关卡和自选网站。",
+    "tags": [
+      "网页游戏",
+      "滚动收集",
+      "网页互动"
+    ]
   }
 ]
