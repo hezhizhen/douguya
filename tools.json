@@ -282,5 +282,18 @@
       "滚动收集",
       "网页互动"
     ]
+  },
+  {
+    "id": "yara-reads",
+    "name": "Yara Reads",
+    "url": "https://yarareads.finereli.com/",
+    "icon": "https://yarareads.finereli.com/icon.svg",
+    "category": "学习探索",
+    "description": "为学过自然拼读的儿童提供英文故事，点击单词获取拼读与发音提示，练习独立阅读。",
+    "tags": [
+      "自然拼读",
+      "英语阅读",
+      "儿童学习"
+    ]
   }
 ]
