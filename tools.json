@@ -295,5 +295,18 @@
       "英语阅读",
       "儿童学习"
     ]
+  },
+  {
+    "id": "legend-of-hyrule",
+    "name": "The Legend of Hyrule",
+    "url": "https://legendofhyrule.com/",
+    "icon": "https://legendofhyrule.com/icon.svg",
+    "category": "学习探索",
+    "description": "通过互动时间线探索《塞尔达传说》系列的海拉鲁历史，切换故事年代与发行顺序，并查看各作介绍。",
+    "tags": [
+      "Zelda",
+      "互动时间线",
+      "游戏历史"
+    ]
   }
 ]
