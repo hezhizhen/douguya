@@ -285,6 +285,28 @@
       let favoritesOnly = false;
       let toastTimeout;
 
+      function readViewFromUrl() {
+        const params = new URLSearchParams(location.search);
+        search.value = params.get("q") || "";
+        const requestedCategory = params.get("category");
+        category = categoryNames.includes(requestedCategory) ? requestedCategory : "全部工具";
+        sort.value = params.get("sort") === "collection" ? "collection" : "name";
+        favoritesOnly = params.get("favorites") === "1";
+      }
+
+      function syncViewUrl() {
+        const url = new URL(location.href);
+        const params = { q: search.value.trim(), category: category === "全部工具" ? "" : category, sort: sort.value === "collection" ? "collection" : "", favorites: favoritesOnly ? "1" : "" };
+        for (const [key, value] of Object.entries(params)) {
+          if (value) url.searchParams.set(key, value);
+          else url.searchParams.delete(key);
+        }
+        if (url.href === location.href) return;
+        // 替换当前记录，避免每次输入都增加一次返回步骤。
+        try { history.replaceState(history.state, "", url); }
+        catch (error) { console.warn("无法更新筛选网址：", error); }
+      }
+
       function parseFavorites(value) {
         const parsed = JSON.parse(value || "[]");
         return new Set(Array.isArray(parsed) ? parsed.filter(id => toolIds.has(id)) : []);
@@ -392,6 +414,7 @@
         document.querySelector("#empty-title").textContent = noTools ? "小店还在整理中" : noFavorites ? "把顺手的道具，放在这里" : "还没找到这件道具";
         document.querySelector("#empty-description").textContent = noTools ? "暂时还没有收录工具，过段时间再来看看。" : noFavorites ? "点击工具右上角的星标，就能收进你的常用清单。" : "试试更短的关键词，或换一个分类。";
         document.querySelector("#reset-filters").hidden = noTools;
+        syncViewUrl();
       }
 
       search.addEventListener("input", render);
@@ -402,7 +425,7 @@
         if (sort.value === "name") ordered.sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
         grid.append(...ordered.map(tool => cards.get(tool.id)));
       }
-      sort.addEventListener("change", sortCards);
+      sort.addEventListener("change", () => { sortCards(); syncViewUrl(); });
       document.querySelector("#reset-filters").addEventListener("click", () => {
         category = "全部工具"; favoritesOnly = false; search.value = ""; render(); search.focus();
       });
@@ -419,6 +442,8 @@
         for (const tool of tools) updateFavoriteButton(cards.get(tool.id).querySelector(".favorite-button"), tool);
         render();
       });
+      window.addEventListener("popstate", () => { readViewFromUrl(); sortCards(); render(); });
+      readViewFromUrl();
       sortCards();
       render();
     }
