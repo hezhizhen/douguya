@@ -2,6 +2,8 @@
 
 一间收藏好用 Web 工具的小店。把别人做好的工具网站收在一起，在需要的时候顺手找到。
 
+在线访问：[道具屋 douguya](https://hezhizhen.github.io/douguya/)。
+
 - **douguya**：别人做好的 Web 工具。
 - [links](https://github.com/hezhizhen/links)：值得保存、阅读的内容。
 - [tools-in-html](https://github.com/hezhizhen/tools-in-html)：自己制作的单文件 HTML 工具。
@@ -67,7 +69,7 @@ favicon 直接请求对应站点，可能比文字稍晚显示；未设置 `icon
 4. 选择 **master** 分支和 **/ (root)**，点击 **Save**。
 5. 等待部署完成，再访问 <https://hezhizhen.github.io/douguya/>。
 
-上述地址是默认发布地址，不表示已经完成部署。之后只修改 `tools.json` 并推送到发布分支，也会更新网站清单。若更改默认分支，应同步调整 Pages 发布分支。
+本仓库已发布到上述地址。之后只修改 `tools.json` 并推送到发布分支，也会更新网站清单。若更改默认分支，应同步调整 Pages 发布分支。
 
 参考：[GitHub Pages 发布源配置](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
 
