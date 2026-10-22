@@ -333,5 +333,18 @@
       "Simplex",
       "数学可视化"
     ]
+  },
+  {
+    "id": "1in8b",
+    "name": "1 in 8 Billion",
+    "url": "https://1in8b.life/",
+    "icon": "https://1in8b.life/favicon.svg",
+    "category": "趣味体验",
+    "description": "根据各国统计数据随机生成出生背景，体验成长、求学、工作等人生事件与选择。",
+    "tags": [
+      "人生模拟",
+      "人口统计",
+      "互动体验"
+    ]
   }
 ]
