@@ -346,5 +346,17 @@
       "人口统计",
       "互动体验"
     ]
+  },
+  {
+    "id": "plane-of-focus",
+    "name": "The Plane of Focus",
+    "url": "https://sael.net/plane-of-focus/",
+    "category": "学习探索",
+    "description": "通过交互式三维镜头模型调整对焦距离和光圈，观察焦平面、景深与成像模糊的变化。",
+    "tags": [
+      "摄影",
+      "光学",
+      "景深"
+    ]
   }
 ]
