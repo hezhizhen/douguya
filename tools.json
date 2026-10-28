@@ -383,5 +383,18 @@
       "日程安排",
       "打印"
     ]
+  },
+  {
+    "id": "puyogo",
+    "name": "PuyoGo",
+    "url": "https://www.puyogo.com/",
+    "icon": "https://www.puyogo.com/favicon.svg",
+    "category": "趣味体验",
+    "description": "在小棋盘上与 AI 对弈，练习围棋落子和提子，支持中文界面和对局复盘。",
+    "tags": [
+      "围棋",
+      "人机对弈",
+      "棋类游戏"
+    ]
   }
 ]
