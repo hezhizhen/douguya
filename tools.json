@@ -358,5 +358,30 @@
       "光学",
       "景深"
     ]
+  },
+  {
+    "id": "blankcal",
+    "name": "BlankCal",
+    "url": "https://blankcal.app/",
+    "category": "办公工具",
+    "description": "按日期范围制作空白日历，自定义月、周、日布局、纸张与书写样式，并导出 PDF 打印。",
+    "tags": [
+      "日历",
+      "计划表",
+      "PDF"
+    ]
+  },
+  {
+    "id": "quickcalendars",
+    "name": "QuickCalendars",
+    "url": "https://www.quickcalendars.com/",
+    "icon": "https://cdn.prod.website-files.com/6787b7669f4789a45c478c2b/67dae390f589f7adbb267fb9_Group%203%20(8)%201.png",
+    "category": "办公工具",
+    "description": "在线编辑可打印月历，添加每日事项与节假日，并自定义周起始日、配色和字体。",
+    "tags": [
+      "日历",
+      "日程安排",
+      "打印"
+    ]
   }
 ]
